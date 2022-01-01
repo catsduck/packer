@@ -28,7 +28,7 @@ source "hyperv-iso" "ubuntu" {
   # found by checking /var/log/syslog. http option was missing in cmdline
   boot_command         = [
     "<esc><esc><esc><esc><wait>",
-    "linux /casper/vmlinuz quiet autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/cloud-init/<enter>",
+    "linux /casper/vmlinuz quiet autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/cloud-init/ubuntu/<enter>",
     "initrd /casper/initrd<enter>",
     "boot<enter>"
   ]
