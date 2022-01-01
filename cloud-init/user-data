@@ -1,0 +1,11 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: ubuntu
+    username: packer
+    password: "$6$sJ4pjRddG$b/fone5krQTsIPOUNApd/tS7MQfrh5VYFeC3tyui2i5.YUvK5NzXA3sVqj6B7kR9ev5H.sDxzdi9iyrwMG6A90"
+  ssh:
+    install-server: yes
+  packages:
+    - linux-cloud-tools-virtual
