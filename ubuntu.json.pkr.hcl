@@ -46,6 +46,7 @@ source "hyperv-iso" "ubuntu" {
   memory               = "${var.memory}"
   output_directory     = "${path.root}/output-ubuntu"
   shutdown_command     = "echo 'packer' | sudo -S -E shutdown -P now"
+  skip_export          = true
   ssh_password         = "packer"
   ssh_timeout          = "60m"
   ssh_username         = "packer"
