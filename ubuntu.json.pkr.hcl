@@ -56,6 +56,8 @@ source "hyperv-iso" "ubuntu" {
 build {
   sources = ["source.hyperv-iso.ubuntu"]
 
+  # updates packages, creates ansible user for further provisioning
+  # and removes login and sudo access for the packer user
   provisioner "shell" {
     execute_command = "echo 'packer' | sudo -S bash '{{.Path}}'"
     script          = "${path.root}/scripts/ubuntu.sh"
