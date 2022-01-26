@@ -9,4 +9,3 @@ autoinstall:
     install-server: yes
   packages:
     - linux-cloud-tools-virtual
-    - qemu-guest-agent
