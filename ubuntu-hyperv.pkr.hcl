@@ -28,7 +28,7 @@ source "hyperv-iso" "ubuntu" {
   # found by checking /var/log/syslog. http option was missing in cmdline
   boot_command         = [
     "<esc><esc><esc><esc><wait>",
-    "linux /casper/vmlinuz quiet autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/cloud-init/ubuntu/<enter>",
+    "linux /casper/vmlinuz quiet autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/cloud-init/ubuntu-hyperv/<enter>",
     "initrd /casper/initrd<enter>",
     "boot<enter>"
   ]
@@ -60,6 +60,6 @@ build {
   # and removes login and sudo access for the packer user
   provisioner "shell" {
     execute_command = "echo 'packer' | sudo -S bash '{{.Path}}'"
-    script          = "${path.root}/scripts/ubuntu.sh"
+    script          = "${path.root}/scripts/ubuntu-hyperv.sh"
   }
 }
