@@ -31,7 +31,7 @@ source "proxmox-iso" "ubuntu" {
   disks {
     storage_pool      = "local-lvm"
     storage_pool_type = "lvm-thin"
-    disk_size         = "20G"
+    disk_size         = "30G"
     format            = "raw"
   }
   network_adapters {
