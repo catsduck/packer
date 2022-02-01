@@ -1,9 +1,15 @@
 variable "proxmox_username" {
+  type = string
   default = env("PROXMOX_USERNAME")
 }
 
 variable "proxmox_password" {
+  type = string
   default = env("PROXMOX_PASSWORD")
+}
+variable "iso_name" {
+  type = string
+  default = "ubuntu-20.04.3-live-server-amd64.iso"
 }
 
 source "proxmox-iso" "ubuntu" {
@@ -16,7 +22,7 @@ source "proxmox-iso" "ubuntu" {
   # using Windows: select from output of 'ipconfig /all'
   http_interface           = "vEthernet (external)"
   insecure_skip_tls_verify = true
-  iso_file                 = "local:iso/ubuntu-20.04.3-live-server-amd64.iso"
+  iso_file                 = "local:iso/${var.iso_name}"
   memory                   = 4096
   node                     = "proxmox"
   password                 = "${var.proxmox_password}"
