@@ -23,6 +23,9 @@ chmod 600 /home/terraform/.ssh/authorized_keys
 echo "terraform ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/terraform
 chmod 440 /etc/sudoers.d/terraform
 
+# remote machine-id so it gets regenerated and avoids duplicates
+>/etc/machine-id
+
 # remove login and sudo access for the packer user
 usermod --shell /usr/sbin/nologin packer
 usermod -G packer packer

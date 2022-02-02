@@ -23,6 +23,9 @@ chmod 600 /home/ansible/.ssh/authorized_keys
 echo "ansible ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/ansible
 chmod 440 /etc/sudoers.d/ansible
 
+# remote machine-id so it gets regenerated and avoids duplicates
+>/etc/machine-id
+
 # remove login and sudo access for the packer user
 usermod --shell /usr/sbin/nologin packer
 usermod -G packer packer
